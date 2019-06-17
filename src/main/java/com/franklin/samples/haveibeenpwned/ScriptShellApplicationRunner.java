@@ -16,6 +16,7 @@ import org.springframework.shell.jline.InteractiveShellApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 /**
  * Script runner
@@ -38,11 +39,13 @@ public class ScriptShellApplicationRunner implements CommandLineRunner {
 
   @Override
   public void run(String... arguments) throws IOException {
+    String[] commandArguments = Arrays.stream(arguments).filter(argument ->
+            !argument.contains("spring.shell.command")).toArray(String[]::new);
     Args args = new Args();
     JCommander.newBuilder()
             .addObject(args)
             .build()
-            .parse(arguments);
+            .parse(commandArguments);
     if (StringUtils.isNotBlank(args.command)) {
       InteractiveShellApplicationRunner.disable(environment);
       try {

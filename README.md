@@ -1,7 +1,8 @@
 # Description
 
 This project is a client to the popular https://haveibeenpwned.com/API/v2 site and supports
-some of the services. It suports interactive (REPL) and non-interactive (SCRIPT) mode
+some of the services. It supports interactive (REPL) and non-interactive (SCRIPT) mode.
+Interactive mode is faster,
 
 # Technologies
 1. gradle (included)

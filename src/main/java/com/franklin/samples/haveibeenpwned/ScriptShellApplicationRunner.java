@@ -10,12 +10,10 @@ import org.springframework.core.annotation.Order;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.shell.Input;
 import org.springframework.shell.InputProvider;
-import org.springframework.shell.ParameterMissingResolutionException;
 import org.springframework.shell.Shell;
 import org.springframework.shell.jline.InteractiveShellApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
 import java.util.Arrays;
 
 /**
@@ -38,21 +36,21 @@ public class ScriptShellApplicationRunner implements CommandLineRunner {
   }
 
   @Override
-  public void run(String... arguments) throws IOException {
-    String[] commandArguments = Arrays.stream(arguments).filter(argument ->
-            !argument.contains("spring.shell.command")).toArray(String[]::new);
-    Args args = new Args();
-    JCommander.newBuilder()
-            .addObject(args)
-            .build()
-            .parse(commandArguments);
-    if (StringUtils.isNotBlank(args.command)) {
-      InteractiveShellApplicationRunner.disable(environment);
-      try {
+  public void run(String... arguments) {
+    try {
+      String[] commandArguments = Arrays.stream(arguments).filter(argument ->
+              !argument.contains("spring.shell.command")).toArray(String[]::new);
+      Args args = new Args();
+      JCommander.newBuilder()
+              .addObject(args)
+              .build()
+              .parse(commandArguments);
+      if (StringUtils.isNotBlank(args.command)) {
+        InteractiveShellApplicationRunner.disable(environment);
         shell.run(new StringInputProvider(args.command));
-      } catch (ParameterMissingResolutionException exception) {
-        LOGGER.info(exception.getMessage());
       }
+    } catch (Exception exception) {
+      LOGGER.info(exception.getMessage());
     }
   }
 

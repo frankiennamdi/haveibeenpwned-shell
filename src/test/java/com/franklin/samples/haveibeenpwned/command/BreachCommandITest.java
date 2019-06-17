@@ -1,4 +1,4 @@
-package com.franklin.samples.haveibeenpwned;
+package com.franklin.samples.haveibeenpwned.command;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,23 +15,15 @@ import static org.junit.Assert.assertThat;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(properties = {InteractiveShellApplicationRunner.SPRING_SHELL_INTERACTIVE_ENABLED + "=" + false,
         "spring.main.banner-mode=off"})
-public class BreachesCommandITest {
+public class BreachCommandITest {
 
   @Autowired
   private Shell shell;
 
   @Test
-  public void testBreach_WithDomainSpecified() {
-    String command = "breaches -domain adobe.com";
+  public void testBreach() {
+    String command = "breach -name adobe";
     Object output = shell.evaluate(() -> command);
-    assertThat(output, hasJsonPath("$.[0].Name", equalTo("Adobe")));
+    assertThat(output, hasJsonPath("$.Name", equalTo("Adobe")));
   }
-
-  @Test
-  public void testBreach_WithNoDomainSpecified() {
-    Object output = shell.evaluate(() -> "breaches");
-    assertThat(output, hasJsonPath("$.[0].Name"));
-    assertThat(output, hasJsonPath("$.[0].Title"));
-  }
-
 }

@@ -1,4 +1,4 @@
-package com.franklin.samples.haveibeenpwned;
+package com.franklin.samples.haveibeenpwned.command;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,7 +19,6 @@ public class BreachAccountCommandITest {
 
   @Autowired
   private Shell shell;
-
 
   @Test
   public void testBreach() {

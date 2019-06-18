@@ -11,7 +11,7 @@ import org.springframework.shell.standard.ShellOption;
 import java.net.URISyntaxException;
 
 /**
- * Command for the {@link CommandConstants#PASTEACCOUNT_COMMAND}
+ * Command for the {@link CommandConstants#PASTE_ACCOUNT_COMMAND}
  */
 @ShellComponent
 public final class PasteAccountCommand {
@@ -26,7 +26,7 @@ public final class PasteAccountCommand {
   @ShellMethod(value = "Get all pastes for an account.", prefix = "-")
   public String pasteAccount(@ShellOption(help = "Email account to search.") String account) {
     try {
-      String baseUri = Joiner.on("/").join(CommandConstants.PASTEACCOUNT_SERVICE, account);
+      String baseUri = Joiner.on("/").join(CommandConstants.PASTE_ACCOUNT_SERVICE, account);
       URIBuilder uriBuilder = new URIBuilder(baseUri);
       return httpSupport.getResponse(uriBuilder.build());
     } catch (URISyntaxException e) {

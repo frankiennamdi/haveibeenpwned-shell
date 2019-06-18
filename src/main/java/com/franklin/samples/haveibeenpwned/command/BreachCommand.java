@@ -1,6 +1,5 @@
 package com.franklin.samples.haveibeenpwned.command;
 
-
 import com.franklin.samples.haveibeenpwned.support.HttpSupport;
 import com.google.common.base.Joiner;
 import org.apache.http.client.utils.URIBuilder;

@@ -2,19 +2,19 @@
 
 This project is a client to the popular https://haveibeenpwned.com/API/v2 site and supports
 some of the services. It supports interactive (REPL) and non-interactive (SCRIPT) mode.
-Interactive mode is faster,
+Interactive mode is faster as the application only loads once.
 
 # Technologies
-1. gradle (included)
+1. Gradle 4.6 (included)
 2. Java 8.x - chosen for some of its appealing functionality like streams, functions and method references.
-3. Developed with IDEA Intellij - chosen as my IDE of choice.
-4. Spring Boot/ Spring Shell
+3. Developed with IDEA Intellij CE 2018.2- chosen as my IDE of choice.
+4. Spring Boot/Spring Shell
 
 # Tests
 
-All the tests are integration tests as they access the **haveibeenpwned** site. So
+Most the tests are integration (ITest) tests as they access the **haveibeenpwned** site. So
 it is possible to reach the rate limit if run repeatedly and frequently. This gives us
-over 84 percent coverage. In the future some unit tests can be added.
+over 92% Class / 84% Method coverage. In the future some unit tests can be added if needed.
 
 # Build
 
@@ -24,7 +24,6 @@ over 84 percent coverage. In the future some unit tests can be added.
 
 # Interactive Execution (REPL Mode)
 Below are some examples of how to execute the application.
-
 
 ### Printing the services supported
 
@@ -36,7 +35,7 @@ create a shell prompt.
 ./pwned
 ```
 
-output:
+**output:**
 
 ```
 pawned:>

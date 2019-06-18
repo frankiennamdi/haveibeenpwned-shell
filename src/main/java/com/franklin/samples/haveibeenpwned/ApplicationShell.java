@@ -1,6 +1,5 @@
 package com.franklin.samples.haveibeenpwned;
 
-
 import org.jline.utils.AttributedString;
 import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;

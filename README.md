@@ -47,7 +47,7 @@ You can type the following command in the prompt. `pawed:>` is not part of the c
 
 ### Printing Help
 
-In the shell you can type help.
+In the shell you can type help. The help provides documentation of what the commands do.
 
 ```
 pawned:>help

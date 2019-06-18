@@ -21,7 +21,7 @@ public class BreachAccountCommandITest {
   private Shell shell;
 
   @Test
-  public void testBreach() {
+  public void testBreachedAccount() {
     String command = "breached-account -account test@example.com -domain adobe.com -truncate-response -include-unverified";
     Object output = shell.evaluate(() -> command);
     assertThat(output, hasJsonPath("$.[0].Name", equalTo("Adobe")));

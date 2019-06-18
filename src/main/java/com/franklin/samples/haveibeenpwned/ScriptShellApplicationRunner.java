@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 import java.util.Arrays;
 
 /**
- * Script runner
+ * Non interactive script runner
  */
 @Order(InteractiveShellApplicationRunner.PRECEDENCE - 100)
 @Component

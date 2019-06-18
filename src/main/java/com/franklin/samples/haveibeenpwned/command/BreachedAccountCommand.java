@@ -23,12 +23,12 @@ public final class BreachedAccountCommand {
     this.httpSupport = httpSupport;
   }
 
-  @ShellMethod(value = "Return a list of all breaches a particular account has been involved in", prefix = "-")
+  @ShellMethod(value = "Get all breaches for an account.", prefix = "-")
   public String breachedAccount(
-          @ShellOption(help = "name of the account") String account,
-          @ShellOption(help = "Returns only the name of the breach") boolean truncateResponse,
-          @ShellOption(help = "Filters the result set to only breaches against the domain specified", defaultValue = "") String domain,
-          @ShellOption(help = "Returns breaches that have been flagged as \"unverified\"") boolean includeUnverified) {
+          @ShellOption(help = "Name of the account.") String account,
+          @ShellOption(help = "Returns only the name of the breach.") boolean truncateResponse,
+          @ShellOption(help = "Filters the result set to only breaches against the domain specified.", defaultValue = "") String domain,
+          @ShellOption(help = "Returns breaches that have been flagged as \"unverified\".") boolean includeUnverified) {
     try {
       String baseUri = Joiner.on("/").join(CommandConstants.BREACHED_ACCOUNT_SERVICE, account);
 

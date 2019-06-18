@@ -24,8 +24,8 @@ public final class BreachCommand {
     this.httpSupport = httpSupport;
   }
 
-  @ShellMethod(value = "Get a single breached site", prefix = "-")
-  public String breach(@ShellOption(help = "name of the site") String name) {
+  @ShellMethod(value = "Get a single breached site.", prefix = "-")
+  public String breach(@ShellOption(help = "Name of the breach.") String name) {
     try {
       String baseUri = Joiner.on("/").join(CommandConstants.BREACH_SERVICE, name);
       URIBuilder uriBuilder = new URIBuilder(baseUri);

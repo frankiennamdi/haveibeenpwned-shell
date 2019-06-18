@@ -23,8 +23,8 @@ public final class PasteAccountCommand {
     this.httpSupport = httpSupport;
   }
 
-  @ShellMethod(value = "Searches breaches related the given email account", prefix = "-")
-  public String pasteAccount(@ShellOption(help = "email account to search for") String account) {
+  @ShellMethod(value = "Get all pastes for an account.", prefix = "-")
+  public String pasteAccount(@ShellOption(help = "Email account to search.") String account) {
     try {
       String baseUri = Joiner.on("/").join(CommandConstants.PASTEACCOUNT_SERVICE, account);
       URIBuilder uriBuilder = new URIBuilder(baseUri);

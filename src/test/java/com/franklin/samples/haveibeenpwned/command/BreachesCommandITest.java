@@ -21,14 +21,14 @@ public class BreachesCommandITest {
   private Shell shell;
 
   @Test
-  public void testBreach_WithDomainSpecified() {
+  public void testBreaches_WithDomainSpecified() {
     String command = "breaches -domain adobe.com";
     Object output = shell.evaluate(() -> command);
     assertThat(output, hasJsonPath("$.[0].Name", equalTo("Adobe")));
   }
 
   @Test
-  public void testBreach_WithNoDomainSpecified() {
+  public void testBreaches_WithNoDomainSpecified() {
     Object output = shell.evaluate(() -> "breaches");
     assertThat(output, hasJsonPath("$.[0].Name"));
     assertThat(output, hasJsonPath("$.[0].Title"));

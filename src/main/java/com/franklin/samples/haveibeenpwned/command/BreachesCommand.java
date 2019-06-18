@@ -23,8 +23,8 @@ public final class BreachesCommand {
     this.httpSupport = httpSupport;
   }
 
-  @ShellMethod(value = "Find all breaches", prefix = "-")
-  public String breaches(@ShellOption(help = "domain to filter", defaultValue = "") String domain) {
+  @ShellMethod(value = "Get all breached sites in the system.", prefix = "-")
+  public String breaches(@ShellOption(help = "Domain of the site to filter from the list.", defaultValue = "") String domain) {
     try {
       URIBuilder uriBuilder = new URIBuilder(CommandConstants.BREACHES_SERVICE);
       URIBuilderHelper uriBuilderHelper = new URIBuilderHelper();

@@ -3,6 +3,8 @@ package com.franklin.samples.haveibeenpwned.support;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
+/* Wrapper for error responses
+ */
 public class NotOkResponse {
 
   private final int statusCode;

@@ -2,7 +2,8 @@
 
 This project is a client to the popular https://haveibeenpwned.com/API/v2 site and supports
 some of the services. It supports interactive (REPL) and non-interactive (SCRIPT) mode.
-Interactive mode is faster as the application only loads once.
+Interactive mode is faster as the application only loads once. The application can
+also be used as a client API if needed, but that is added benefit.
 
 # Technologies
 1. Gradle 4.6 (included)
@@ -124,4 +125,12 @@ You can run all the commands listed above but with the -c options
 
 ```
 ./pwned -c "breach -name adobe"
+```
+
+# API Use
+
+```
+BreachCommand command = new BreachCommand(new HttpSupport());
+String breach = command.breach("adobe");
+
 ```
